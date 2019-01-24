@@ -4,8 +4,20 @@ import "./App.css";
 
 class App extends Component {
   render() {
+    let subscribers = [
+      {
+        id: 1,
+        name: "Akshay",
+        phone: "9997122169"
+      },
+      {
+        id: 2,
+        name: "Ankit Tiwari",
+        phone: "884576521"
+      }
+    ];
     return (
-      <div>
+      <div className="component-container">
         <Header />
         <div className="component-body-container">
           <button className="custom-btn add-Btn">Add</button>
@@ -13,6 +25,15 @@ class App extends Component {
             <span className="grid-item name-heading">Name</span>
             <span className="grid-item phone-heading">Phone</span>
           </div>
+
+          {subscribers.map(sub => {
+            return (
+              <div key={sub.id} className="grid-container">
+                <span className="grid-item">{sub.name}</span>
+                <span className="grid-item">{sub.phone}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     );
